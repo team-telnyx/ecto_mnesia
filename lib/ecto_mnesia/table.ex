@@ -168,7 +168,7 @@ defmodule EctoMnesia.Table do
 
   By default, context is `:transaction`.
   """
-  def transaction(fun, context \\ :transaction) do
+  def transaction(fun, context \\ :async_dirty) do
     case activity(context, fun) do
       {:error, {%{} = reason, stack}, _} ->
         reraise reason, stack
